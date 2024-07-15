@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="UserDaoBean" class="com.hello.spring6.dao.UserDao"></bean>
+
+    <bean id="UserServiceBean" class="com.hello.spring6.service.UserService">
+        <property name="userDao" ref="UserDaoBean"></property>
+    </bean>
+
+    <bean id="dateBean" class="com.hello.spring6.bean.DateFactory">
+        <constructor-arg index="0" value="2020-01-01"></constructor-arg>
+    </bean>
+    <bean id="stuBean" class="com.hello.spring6.bean.Student">
+        <property name="birth" ref="dateBean"></property>
+    </bean>
+</beans>
